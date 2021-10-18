@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, View,  Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const CharacterCard = ({image, name}) => {
+const CharacterCard = ({name, image}) => {
 
     const navigation=useNavigation()
 
@@ -10,9 +10,7 @@ const CharacterCard = ({image, name}) => {
         <TouchableOpacity style={styles.container} 
         onPress={()=>navigation.navigate("Detail")}
         >
-			<Image style={styles.image}
-				source={image}
-			/>
+            <Image style={styles.image} source={image}/>
             <Text style={styles.font}>{name}</Text>
         </TouchableOpacity>
     )

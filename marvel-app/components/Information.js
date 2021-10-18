@@ -1,10 +1,15 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const Information = () => {
+const Information = ({ image, name, description }) => {
     return (
-        <View>
-            <Text>Information</Text>
+        <View style={styles.container}>
+            <Image 
+            style={styles.image}
+            source={{uri: image}}
+            />
+            <Text style={styles.title}>{name}</Text>
+            <Text style={styles.description}>{description}</Text>
         </View>
     )
 }
