@@ -9,6 +9,8 @@ const Home = () => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     const { ts, apikey, hash, baseURL } = apiParams;
+
+    const {item}=data
     useEffect(() => {
         axios.get(`${baseURL}/v1/public/characters`, {
           params: {
@@ -29,11 +31,12 @@ const Home = () => {
                     <FlatList
                         data={data}
                         keyExtractor={({ id }) => id.toString()}
-                        renderItem={({ item }) => (
+                        renderItem={({ item }) => 
                         <CharacterCard 
-                            image={`${item?.thumbnail?.path}.${item?.thumbnail.extension}`}
-                            name={item.name} />
-                        )}
+                        id={item.id}
+                        image={`${item?.thumbnail?.path}.${item?.thumbnail.extension}`} 
+                        name={item.name} />
+                        }
                      />
                 )
             }
